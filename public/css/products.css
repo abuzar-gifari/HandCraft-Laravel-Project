@@ -1,0 +1,144 @@
+.container{
+    width: 100%;
+    text-align: center;
+}
+input{
+    display: none;
+}
+h1{
+    font-weight: normal;
+    font-size: 35px;
+    position: relative;
+   
+}
+h1::before{
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 3px;
+    background-color: crimson;
+    bottom: -10px;
+    left: 50%;
+    transform: animate 4s linear infinite;
+}
+@keyframes animate{
+    0%{
+        width: 100px;
+    }
+    50%{
+        width: 200px;
+    }
+    100%{
+        width: 100px;
+    }
+}
+.top-content{
+    background-color: rgb(243, 243, 243);
+    width: 90%;
+    margin: 0 auto 20px auto;
+    height: 60px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px lightgray;
+}
+h3{
+    height: 100%;
+    line-height: 60px;
+    padding: 0 50px;
+    color: rgb(0, 0, 0);
+    font-size: 25px;
+}
+
+.photo-gallery{
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 20px;
+}
+.product{
+    background-color: #4bc7af;
+    border-radius: 20px;
+}
+
+.product .price .name h2{
+    font-size: 30px;
+    font-weight: 400;
+}
+.product .pic{
+    position: relative;
+    height: 230px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px lightgray;
+    cursor: pointer;
+    transition: .5s;
+    
+}
+.product .pic img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    transition: .5s;
+}
+.product .price{
+    width: 100%;
+    height: 50px;
+    margin-top: 10px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #16a085;
+    border-radius: 10px;
+}
+.product .price .txt h2{
+    font-size: 20px;
+    font-weight: 400;
+}
+.product .price .button button{
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    padding: 10px;
+}
+.product .price .button button:hover{
+    background-color: black;
+    color: white;
+    padding: 10px;
+}
+
+
+.product .pic::before{
+    content: "100% Authentic";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #16a085;
+    font-size: 25px;
+    font-weight: bold;
+    width: 100%;
+    margin-top: -100px;
+    opacity: 0;
+    transition: .3s;
+    transition-delay: .2s; 
+}
+.product .pic:after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    border-radius: 10px;
+    height: 0;
+    background-color: #16a0843b;
+    transition: .3s;
+    z-index: 1;
+}
+.product .pic:hover:after{
+    height: 100%;
+}
+.product .pic:hover:before{
+    margin-top: 0;
+    opacity: 1;
+}
