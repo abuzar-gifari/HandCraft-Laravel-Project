@@ -11,6 +11,11 @@
 
         <li class="active"><a class="nav-link" href="{{ route('admin_home') }}"><i class="fas fa-hand-point-right"></i> <span>Dashboard</span></a></li>
 
+        <!-- product -->
+        <li class="{{ Request::is('admin/product/*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_product_view') }}" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="FAQ"><i class="fa fa-bolt"></i> <span>Manage product</span></a></li>
+
+
+
     </ul>
 </aside>
 </div>

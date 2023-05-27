@@ -43,84 +43,40 @@
     <div class="top-content">
             <h3>PRODUCTS</h3>
     </div>
+    @php
+        $products = \App\Models\Product::get();
+    @endphp
 
+    @foreach ($products as $product)
+
+    <form action="{{ route('addcart') }}" method="post">
+    @csrf
     <div class="photo-gallery">
         <div class="product">
             <div class="name">
-                <h2>Ear Rings</h2>
+                <input type="hidden" name="name" value="{{ $product->name }}">
+                <input type="hidden" name="product_id" value="{{ $product->id }}">
+                <h2>{{ $product->name }}</h2>
             </div>
             <div class="pic">
-                <img src="image/c.jpg" alt="">
+                <img src="{{ asset('uploads/'.$product->photo) }}" alt="">
             </div>
-
             <div class="price">
                 <div class="txt">
-                    <h2>$500</h2>
+                    <input type="hidden" name="price" value="{{ $product->price }}">
+                    <h2>${{ $product->price }}</h2>
                 </div>
                 <div class="button">
-                    <button>Add To Cart</button>
+                    <button type="submit">Add To Cart</button>
                 </div>
             </div>
         </div>
-
-        <div class="product">
-            <div class="name">
-                <h2>Design</h2>
-            </div>
-            <div class="pic">
-                <img src="image/d.jpg" alt="">
-            </div>
-
-            <div class="price">
-                <div class="txt">
-                    <h2>$50</h2>
-                </div>
-                <div class="button">
-                    <button>Add To Cart</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="product">
-            <div class="name">
-                <h2>Ear Rings</h2>
-            </div>
-            <div class="pic">
-                <img src="image/e.jpg" alt="">
-            </div>
-
-            <div class="price">
-                <div class="txt">
-                    <h2>$500</h2>
-                </div>
-                <div class="button">
-                    <button>Add To Cart</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="product">
-            <div class="name">
-                <h2>Ear Rings</h2>
-            </div>
-            <div class="pic">
-                <img src="image/f.jpg" alt="">
-            </div>
-
-            <div class="price">
-                <div class="txt">
-                    <h2>$500</h2>
-                </div>
-                <div class="button">
-                    <button>Add To Cart</button>
-                </div>
-            </div>
-        </div>
-         
-        
     </div>
-</div>
+    </form>
+    
+    @endforeach
 
+</div>
 
 </body>
 </html>

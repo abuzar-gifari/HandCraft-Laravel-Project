@@ -84,14 +84,22 @@
          <th>Price</th>
          <th>Action</th>
       </tr>
+      @php
+            $carts = \App\Models\Cart::where('user_id',1)->get();
+         @endphp
+         @foreach ($carts as $cart)
       <tr>
-         <td>1</td>
-         <td>Product Name</td>
-         <td>2</td>
+         
+         <td>{{ $loop->iteration }}</td>
+         <td>{{ $cart->name }}</td>
+         <td>{{ $cart->price }}</td>
          <td>
-            <a href="">Remove</a>
+            <a href="{{ route('addcartremove',$cart->id) }}">Remove</a>
          </td>
+         
+         
       </tr>
+      @endforeach
     </table>
    
 
