@@ -13,6 +13,9 @@ Route::get('/', function () {
     return view('front.index');
 })->name('home');
 
+Route::get('/about', function () {
+    return view('front.about');
+})->name('about');
 
 Route::get('/login',[AuthController::class,'login'])->name('login');
 Route::get('/registration',[AuthController::class,'registration'])->name('registration');
@@ -37,3 +40,8 @@ Route::get('/admin/product/delete/{id}', [AdminProductController::class, 'delete
 
 Route::post('/add-cart', [CartController::class, 'addcart'])->name('addcart');
 Route::get('/add-cart/{id}', [CartController::class, 'addcartremove'])->name('addcartremove');
+
+
+Route::post('/registration-submit', [AuthController::class, 'registration_submit'])->name('registration-submit');
+Route::post('/login-submit', [AuthController::class, 'login_submit'])->name('login-submit');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');

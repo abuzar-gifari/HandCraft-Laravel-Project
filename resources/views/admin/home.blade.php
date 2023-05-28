@@ -14,7 +14,10 @@
                     <h4>Total Products</h4>
                 </div>
                 <div class="card-body">
-                    
+                    @php
+                        $products = \App\Models\Product::count();
+                    @endphp
+                    {{$products}}
                 </div>
             </div>
         </div>

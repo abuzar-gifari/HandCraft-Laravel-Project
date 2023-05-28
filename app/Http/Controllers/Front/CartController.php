@@ -24,7 +24,7 @@ class CartController extends Controller
     public function addcart(Request $request){
 
         $obj = new Cart();
-        $obj->user_id = 1;
+        $obj->user_id = Auth::guard('customer')->user()->id;
         $obj->product_id = $request->product_id;
         $obj->name = $request->name;
         $obj->price = $request->price;

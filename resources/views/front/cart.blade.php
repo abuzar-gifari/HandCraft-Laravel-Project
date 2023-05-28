@@ -85,9 +85,9 @@
          <th>Action</th>
       </tr>
       @php
-            $carts = \App\Models\Cart::where('user_id',1)->get();
-         @endphp
-         @foreach ($carts as $cart)
+         $carts = \App\Models\Cart::where('user_id',Auth::guard('customer')->user()->id)->get();
+      @endphp
+      @foreach ($carts as $cart)
       <tr>
          
          <td>{{ $loop->iteration }}</td>
@@ -96,7 +96,6 @@
          <td>
             <a href="{{ route('addcartremove',$cart->id) }}">Remove</a>
          </td>
-         
          
       </tr>
       @endforeach
